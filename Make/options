@@ -1,0 +1,31 @@
+#if defined(mingw)
+
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/turbulenceModels/compressible/turbulenceModel \
+    -I$(PARMGRIDGEN_INCLUDE_DIR)
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -L$(PARMGRIDGEN_LIB_DIR) -lIMlib -lmgrid
+
+#else
+
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/turbulenceModels/compressible/turbulenceModel \
+    -I$(PARMGRIDGEN_INCLUDE_DIR)/IMlib \
+    -I$(PARMGRIDGEN_INCLUDE_DIR)/Lib
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -L$(PARMGRIDGEN_LIB_DIR) -lIMlib -lMGridGen
+
+#endif
+
