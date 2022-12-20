@@ -106,7 +106,7 @@ void Foam::kgodunovFlux::evaluateFlux
         }
         
         iter++;
-    } while (fabs(P - P0) > 0.00001);
+    } while (fabs(P - P0) > 0.000001);
 
     scalar U = (u1 + u2 + f2 - f1) / 2.0;
 
